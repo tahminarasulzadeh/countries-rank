@@ -91,17 +91,17 @@ function Country() {
 
 
     return <div>
-        <div className="max-w-[650px] border border-[#0D1F3D] rounded-md border-[2px]">
+        <div className="max-w-[500px] border border-[#0D1F3D] rounded-md border-[2px]">
             <div className='h-[40px] w-full px-2 py-2 rounded-lg bg-[#0D1F3D]'>
-                <h1 className='font-noto  text-[#40516C] font-medium text-[16px] '>Difference in rank between years</h1>
+                <h1 className='font-noto  text-[#40516C] font-medium text-[14px] '>Difference in rank between years</h1>
             </div>
             <div className="flex  h-[248px] overflow-y-scroll  px-5 mt-2 flex-col">
-                <div className="flex justify-end py-0">
+                <div className="flex justify-center py-0">
                     <RankFilter items={years} />
                     <RankFilter items={years} />
                 </div>
 
-                <div className="flex justify-center mr-[20px] gap-[20px]">
+                <div className="flex justify-center mr-[20px] gap-[10px]">
                     <div>
                         {countries.map((country, index) => (
 
@@ -112,7 +112,7 @@ function Country() {
 
 
 
-                                <div className='flex  w-[300px] ml-[6rem] gap-[10px]'>
+                                <div className='flex  w-[250px] ml-[6rem] gap-[10px]'>
                                     <span className='font-noto text-start text-[14px] text-white'>{country.name.common}</span>
                                     <img src={country.flags.png} alt="country-flag" className='w-[20px] mt-1.5 h-[10px]' />
                                 </div>
@@ -139,26 +139,8 @@ function Country() {
                     </div>
 
                     <div >
-                        {/* {
-                            dataArray.map((item) => (
-                                <div key={item.id} className="flex gap-[10px] ">
-                                    <div className="flex gap-[10px]">
-                                        {item.num > 0 ? <svg xmlns="http://www.w3.org/2000/svg" className=" stroke-current text-[#32de84] " viewBox="0 0 24 24" width="24" height="24">
-                                            <path d="M7 17L17 7M17 7H7m10 0v10" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-
-                                            : item.num === 0 ? <span>=</span> :
-                                                <svg xmlns="http://www.w3.org/2000/svg" className=" stroke-current text-[#ef233c] " viewBox="0 0 24 24" width="24" height="24">
-                                                    <path d="M17 7L7 17M7 17H17M7 17V7" className="stroke-current text-red " stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg>}
-                                    </div>
-
-
-                                    <span className="text-white">{item.num}</span>
-                                    {item.num > 0 ? <span className="font-noto font-medium text-[14px] text-[#32de84]">Positions up</span> : item.num === 0 ? <span  className="font-noto font-medium text-[14px] text-[#6c757d]">No changes here</span> :  <span className="font-noto font-medium text-[14px] text-[#ef233c]">Positions down</span>} 
-                                </div>
-                            ))
-                        } */}
+                        
+                   
                     </div>
 
 

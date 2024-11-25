@@ -61,14 +61,14 @@ const FilterDropdown: React.FC<MyComponentProps> = ({ items, name }) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)} // Allows manual input
           onFocus={() => setInputValue('')}
-          className="  max-w-[385px]  focus:outline-none mt-2 bg-[#293E64] text-[#A6B4CA] text-[14px]  px-3 py-2 rounded-md border border-[2px] border-[#4A618A] placeholder:text-[12px]"
+          className="  max-w-[150px]  focus:outline-none mt-2 bg-[#293E64] text-[#A6B4CA] text-[14px]  px-3 py-2 rounded-md border border-[2px] border-[#4A618A] placeholder:text-[12px]"
           placeholder="Select ..."
         />
 
 
 
         {isOpen && (
-          <ul className="border absolute border-[#4A618A] w-[185px] h-48 overflow-y-scroll bg-[#293E64] rounded p-2">
+          <ul className="border absolute border-[#4A618A] w-[150px] h-48 overflow-y-scroll bg-[#293E64] rounded p-2">
             {filteredItems.length > 0 ? (
               filteredItems.map((item) => (
                 <li

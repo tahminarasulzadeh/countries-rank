@@ -30,25 +30,25 @@ const CountryList: React.FC = () => {
 
 
     return (
-        <div className="max-w-[650px] border border-[#0D1F3D] rounded-md border-[2px]">
-            <div className='h-[40px] w-full px-2 py-2 rounded-lg bg-[#0D1F3D]'>
-                <h1 className='font-noto  text-[#40516C] font-medium text-[16px] '>Gross Domestic Product billions of U.S dollars in 2019 year</h1>
+        <div className="max-w-[450px] border border-[#0D1F3D] rounded-md border-[2px]">
+            <div className='h-[40px] max-w-[500px] px-2 py-2 rounded-lg bg-[#0D1F3D]'>
+                <h1 className='font-noto  text-[#40516C] font-medium text-[14px] '>Gross Domestic Product billions of U.S dollars in 2019 year</h1>
             </div>
-            <div className="flex  h-[248px] overflow-y-scroll  px-5 mt-2 flex-col">
-                <div className='flex justufy-between gap-[10rem]'>
+            <div className="flex  h-[248px] overflow-y-scroll  px-3 mt-2 flex-col">
+                <div className='flex justufy-center ml-[1rem] gap-[3rem]'>
                     <span className='font-noto font-bold text-[14px] text-white'>Rank</span>
                     <span className='font-noto  font-bold text-[14px] text-white'>Country</span>
                 </div>
                 {countries.map((country, index) => (
                     <div
                         key={index}
-                        className="flex justify-between mt-2 gap-[10px] "
+                        className="flex w-[450px]  justify-center mt-2 gap-[10px] "
                     >
                         <span className='font-noto text-[14px] text-white'>{index + 1}</span>
 
 
-                        <div className='flex w-[300px] ml-[6rem] gap-[10px]'>
-                            <span className='font-noto text-start text-[14px] text-white'>{country.name.common}</span>
+                        <div className='flex w-[200px] ml-[2rem] gap-[10px]'>
+                            <span className='font-noto text-start text-[12px] text-white'>{country.name.common}</span>
                             <img src={country.flags.png} alt="country-flag" className='w-[20px] mt-1.5 h-[10px]' />
                           </div>
                           
