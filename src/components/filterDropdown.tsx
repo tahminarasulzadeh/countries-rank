@@ -68,7 +68,7 @@ const FilterDropdown: React.FC<MyComponentProps> = ({ items, name }) => {
 
 
         {isOpen && (
-          <ul className="border absolute border-[#4A618A] w-[150px] h-48 overflow-y-scroll bg-[#293E64] rounded p-2">
+          <ul className="border absolute border-[#4A618A] z-10 w-[150px] h-48 overflow-y-scroll bg-[#293E64] rounded p-2">
             {filteredItems.length > 0 ? (
               filteredItems.map((item) => (
                 <li
