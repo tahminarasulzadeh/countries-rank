@@ -1,46 +1,92 @@
-import React from "react";
+import React from 'react';
+import { Line } from 'react-chartjs-2';
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
   Tooltip,
   Legend,
-  ResponsiveContainer,
-} from "recharts";
+  ChartOptions,
+  ChartData,
+  ChartDataset,
+} from 'chart.js';
 
-const data = [
-    { year: 1980, value1: 1000, value2: 1500, value3: 2000 },
-    { year: 1985, value1: 2000, value2: 2500, value3: 3000 },
-    { year: 1990, value1: 3000, value2: 4000, value3: 5000 },
-    { year: 1995, value1: 5000, value2: 6000, value3: 7000 },
-    { year: 2000, value1: 7000, value2: 8000, value3: 9000 },
-    { year: 2005, value1: 10000, value2: 11000, value3: 12000 },
-    { year: 2010, value1: 15000, value2: 16000, value3: 17000 },
-    { year: 2015, value1: 18000, value2: 19000, value3: 20000 },
-    { year: 2020, value1: 20000, value2: 21000, value3: 22000 },
+// Register Chart.js components
+ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-  ];
-  
-
-
-
-const MyLineChart = () => {
-  return (
-    <ResponsiveContainer className="w-[600px] mt-2 h-[400px]">
-      <LineChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-        <XAxis dataKey="year" stroke="#fff" />
-        <YAxis stroke="#fff" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="value1" stroke="#82ca9d" strokeWidth={2} />
-        <Line type="monotone" dataKey="value2" stroke="#8884d8" strokeWidth={2} />
-        <Line type="monotone" dataKey="value3" stroke="#ff7300" strokeWidth={2} />
-      </LineChart>
-    </ResponsiveContainer>
-  );
+// Function to generate random data for countries
+const generateRandomData = (): number[] => {
+  const data = [];
+  for (let i = 0; i < 9; i++) {
+    // Random values between 5000 and 20000
+    data.push(Math.floor(Math.random() * (20000 - 5000) + 5000));
+  }
+  return data;
 };
 
-export default MyLineChart;
+
+
+// Sample Data with 250 countries
+const data: ChartData<'line', number[], string> = {
+  labels: ['1980', '1985', '1990', '1995', '2000', '2005', '2010', '2015', '2020'],
+  datasets: Array.from({ length: 250 }, (_, index) => ({
+    label: `Country ${index + 1}`,
+    data: generateRandomData(),
+    borderColor: `hsl(${(index * 360) / 250}, 100%, 50%)`, // Unique color for each country
+    borderWidth: 0.75, // Increase line thickness for better visibility
+    fill: false,
+    cubicInterpolationMode: 'monotone', // Smooth lines
+    pointRadius: 2, // Smaller data points to reduce clutter
+    pointBackgroundColor: `hsl(${(index * 360) / 250}, 100%, 60%)`, // Different point color
+    pointHoverRadius: 5, // Larger points on hover for better interaction
+    lineTension: 0.2, // Controls line smoothing
+    borderDash: [5, 5], // Dash pattern for clearer distinction
+  })) as ChartDataset<'line', number[]>[], // Ensure type compatibility
+};
+
+// Chart options with Y-axis set from 5k to 20k
+const options: ChartOptions<'line'> = {
+  responsive: true,
+  scales: {
+    x: {
+      ticks: { color: '#fff' },
+    },
+    y: {
+      min: 5000, // Minimum Y value
+      max: 20000, // Maximum Y value
+      ticks: {
+        color: '#fff',
+        callback: function (tickValue: string | number) {
+          if (typeof tickValue === 'number') {
+            return `${tickValue / 1000}k`; // Format as '5k' for 5000
+          }
+          return tickValue;
+        },
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: false,
+      
+    },
+    tooltip: {
+      enabled: true,
+      callbacks: {
+        label: function (tooltipItem: any) {
+          return `${tooltipItem.dataset.label}: ${tooltipItem.raw / 1000}k`;
+        },
+      },
+    },
+  },
+};
+
+const LineChartComponent: React.FC = () => (
+  <div className="w-[480px] h-46 p-4 rounded-lg shadow-lg">
+    <Line data={data} options={options} />
+  </div>
+);
+
+export default LineChartComponent;

@@ -80,7 +80,7 @@ const FilterDropdown: React.FC<MyComponentProps> = ({ items, name }) => {
                 </li>
               ))
             ) : (
-              <li className="p-2 text-[#A6B4CA] text-center">No results found</li>
+              <li className="p-2 text-[#A6B4CA] text-center">No option</li>
             )}
           </ul>
         )}

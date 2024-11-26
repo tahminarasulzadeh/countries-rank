@@ -1,4 +1,4 @@
- import CustomLineChart from "./chart";
+import LineChartComponent from "./chart";
 
 function ChartData () {
     return (
@@ -7,7 +7,7 @@ function ChartData () {
             <h1 className='font-noto  text-[#40516C] font-medium text-[14px] '>Gross Domestic Product billions of U.S dollars over years</h1>
         </div>
         <div className="flex w-[550px]  h-[248px] overflow-y-scroll  px-2 mt-2 flex-col">
-          <CustomLineChart />
+          < LineChartComponent/>
 
 
         </div>
