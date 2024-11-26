@@ -21,16 +21,66 @@ const MainChart: React.FC = () => {
         { x: 2010, y: 3 },
       ],
     },
-    // Add other countries
+    {
+      id: "Germany",
+      data: [
+        { x: 1980, y: 3 },
+        { x: 1990, y: 4 },
+        { x: 2000, y: 4 },
+        { x: 2010, y: 5 },
+      ],
+    },
+    {
+      id: "France",
+      data: [
+        { x: 1980, y: 4 },
+        { x: 1990, y: 5 },
+        { x: 2000, y: 5 },
+        { x: 2010, y: 6 },
+      ],
+    },
+    // Add more countries up to 20 or more here
+    {
+      id: "South Korea",
+      data: [
+        { x: 1980, y: 10 },
+        { x: 1990, y: 9 },
+        { x: 2000, y: 7 },
+        { x: 2010, y: 8 },
+      ],
+    },
+    {
+      id: "Brazil",
+      data: [
+        { x: 1980, y: 9 },
+        { x: 1990, y: 8 },
+        { x: 2000, y: 9 },
+        { x: 2010, y: 9 },
+      ],
+    },
+    {
+      id: "Russia",
+      data: [
+        { x: 1980, y: 8 },
+        { x: 1990, y: 7 },
+        { x: 2000, y: 8 },
+        { x: 2010, y: 10 },
+      ],
+    },
   ];
 
   return (
-    <div className="w-full h-[340px]  rounded-lg p-4 shadow-md">
+    <div className="w-full h-[400px]  rounded-lg p-4 shadow-md">
       <ResponsiveLine
         data={data}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 160, bottom: 50, left: 60 }}
         xScale={{ type: "point" }}
-        yScale={{ type: "linear", min: 1, max: 10, stacked: false , reverse: true}}
+        yScale={{
+          type: "linear",
+          min: 1,
+          max: 10,
+          stacked: false,
+        }}
         axisTop={null}
         axisRight={null}
         axisBottom={{
@@ -48,7 +98,7 @@ const MainChart: React.FC = () => {
           tickSize: 5,
           tickPadding: 5,
         }}
-        colors={{ scheme: "category10" }}
+        colors={{ scheme: "category10" }} // Automatically generates unique colors
         pointSize={8}
         pointColor={{ theme: "background" }}
         pointBorderWidth={2}
@@ -60,11 +110,11 @@ const MainChart: React.FC = () => {
             anchor: "bottom-right",
             direction: "column",
             justify: false,
-            translateX: 100,
+            translateX: 130,
             translateY: 0,
             itemsSpacing: 0,
             itemDirection: "left-to-right",
-            itemWidth: 80,
+            itemWidth: 100,
             itemHeight: 20,
             itemOpacity: 0.75,
             symbolSize: 12,
@@ -104,4 +154,3 @@ const MainChart: React.FC = () => {
 };
 
 export default MainChart;
-

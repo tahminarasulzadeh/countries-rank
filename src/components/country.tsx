@@ -1,5 +1,5 @@
 import RankFilter from "./rankFilter";
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 
 function Country() {
@@ -78,16 +78,6 @@ function Country() {
 
 
     const ranNumber = Math.floor(Math.random() * 101) - 50;
-
-
-    type DataItem = {
-        id: number;
-        num: number;
-    };
-    const dataArray:DataItem[] = Array.from({ length: 28950 }, (_, i) => ({
-        id: i + 1,   // id will range from 1 to 250
-        num: ranNumber,  // Same random number for each item (can also generate different random numbers per item)
-      }));
 
 
     return <div>
